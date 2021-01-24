@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZYB_CM_TEXT</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>message class for object</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZYB_CM_TEXT</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Object &amp;1 already exist</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZYB_CM_TEXT</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>&amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZYB_CM_TEXT</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Can&apos;t create object &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZYB_CM_TEXT</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Can&apos;t activate object &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZYB_CM_TEXT</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Can&apos;t deactivate object &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZYB_CM_TEXT</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Can&apos;t create subobject &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZYB_CM_TEXT</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Can&apos;t activate subobject &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZYB_CM_TEXT</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Can&apos;t deactivate subobject &amp;1</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

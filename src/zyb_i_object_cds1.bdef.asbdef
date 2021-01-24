@@ -1,0 +1,76 @@
+managed; // implementation in class zbp_yb_i_object_cds1 unique;
+
+
+define behavior for ZYB_I_OBJECT_CDS1 alias Object
+implementation in class zyb_cl_object_cds1 unique
+persistent table zyb_object_d1
+lock master
+etag master LocalLastChangedAt
+{
+
+  field ( mandatory ) ObjectText, PackageName;
+  field ( readonly ) TransportRequest, Status,LocalCreatedAt,LocalCreatedBy,LocalLastChangedAt,LocalLastChangedBy;
+  field (mandatory : create, readonly : update ) Object;
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+
+  determination fillStatus on save { create; }
+  determination createSubobject on save { create; }
+
+  action ( features : instance ) setStatusActive parameter ZYB_ABSTRACT_TRANSPORT result [1] $self;
+  action ( features : instance ) setStatusInactive parameter ZYB_ABSTRACT_TRANSPORT result [1] $self;
+
+  internal action changeStatus parameter ZYB_ABSTRACT_TRANSPORT result [1] $self;
+
+
+  mapping for zyb_object_d1
+  {
+    Object = object;
+    LocalCreatedAt = local_created_at;
+    LocalCreatedBy = local_created_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LocalLastChangedBy = local_last_changed_by;
+    ObjectText = object_text;
+    PackageName = package_name;
+    TransportRequest = transport_request;
+    Status = status;
+  }
+
+  association _subobject { create; }
+}
+
+define behavior for ZYB_I_SUBOBJECT_CDS1 alias Subobject
+implementation in class zyb_cl_subobject_cds1 unique
+persistent table zyb_subobject_d1
+lock dependent by _object
+etag master LocalLastChangedAt
+{
+  field ( readonly ) Object, TransportRequest, Status,LocalCreatedAt,LocalCreatedBy,LocalLastChangedAt,LocalLastChangedBy;
+  field (mandatory : create, readonly : update ) Subobject;
+  update ( features : instance );
+  delete ( features : instance );
+
+  action ( features : instance ) setStatusSubActive parameter ZYB_ABSTRACT_TRANSPORT result [1] $self;
+  action ( features : instance ) setStatusSubInactive parameter ZYB_ABSTRACT_TRANSPORT result [1] $self;
+  internal action changeStatusSubobject parameter ZYB_ABSTRACT_TRANSPORT result [1] $self;
+
+  determination FillStatusSub on save { create; }
+
+  mapping for zyb_subobject_d1
+  {
+    LocalCreatedAt = local_created_at;
+    LocalCreatedBy = local_created_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LocalLastChangedBy = local_last_changed_by;
+    Object = object;
+    Subobject = subobject;
+    SubobjectText = subobject_text;
+    TransportRequest = transport_request;
+    Status = status;
+  }
+
+  association _object { }
+
+}

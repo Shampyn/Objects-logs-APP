@@ -1,0 +1,26 @@
+projection;
+
+define behavior for ZYB_C_OBJECT_CDS1 alias Object
+use etag
+{
+  use create;
+  use update;
+  use delete;
+
+  use action setStatusActive;
+  use action setStatusInactive;
+
+  use association _subobject { create;}
+}
+
+define behavior for ZYB_C_SUBOBJECT_CDS1 alias Subobject
+use etag
+{
+  use update;
+  use delete;
+
+  use action setStatusSubActive;
+  use action setStatusSubInactive;
+
+  use association _object { }
+}

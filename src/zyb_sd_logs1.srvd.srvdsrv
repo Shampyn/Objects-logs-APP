@@ -1,0 +1,5 @@
+@EndUserText.label: 'sd logs'
+define service ZYB_SD_logs1 {
+  expose ZYB_C_OBJECT_CDS1;
+  expose ZYB_C_SUBOBJECT_CDS1;
+}
